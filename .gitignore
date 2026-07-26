@@ -1,0 +1,28 @@
+# Datasets and generated reconstruction output
+data/
+dataset/
+datasets/
+output/
+outputs/
+reconstruction/
+sparse/
+stereo/
+dense/
+*.db
+*.bin
+*.ply
+*.pcd
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Local tools and editors
+.cache/
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
