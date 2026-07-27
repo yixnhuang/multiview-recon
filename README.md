@@ -43,14 +43,17 @@ version control. Place local input images in a directory ignored by Git, such as
 Experimental. The utilities are retained for reconstruction research and require
 local configuration before use.
 
-## Contact
-
-- Website: [yixuanhuang.com](https://yixuanhuang.com)
-- Email: [yixnhuang@gmail.com](mailto:yixnhuang@gmail.com)
-
 ## License
 
 Copyright 2025 Yixuan Huang
 
 This project is licensed under the Apache License, Version 2.0.
 See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or collaboration, use the contact details below or consult the
+website for the latest information.
+
+- Website: [yixuanhuang.com](https://yixuanhuang.com)
+- Email: [yixnhuang@gmail.com](mailto:yixnhuang@gmail.com)
