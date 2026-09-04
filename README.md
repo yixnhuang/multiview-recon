@@ -1,59 +1,73 @@
 # Multiview Reconstruction
 
-A lightweight COLMAP-based toolkit for preparing image collections, running
-multi-view reconstruction workflows, and inspecting generated 3D results.
+The first working version of the RGB-D capture and COLMAP reconstruction
+workflow that later became [**VisRecon**](https://github.com/yixnhuang/visrecon).
+It holds the working record of that stage, including three utilities that exist
+only here.
 
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Experimental-orange.svg)](#project-status)
+[![Status](https://img.shields.io/badge/Status-Complete-success.svg)](#project-status)
+[![Successor](https://img.shields.io/badge/Successor-VisRecon-4C8BF5)](https://github.com/yixnhuang/visrecon)
 [![Python](https://img.shields.io/badge/Python-3.10-informational.svg)](#requirements)
 
 ## Overview
 
-This repository provides focused utilities for preprocessing multi-view image
-collections, running reconstruction tasks with
-[COLMAP](https://colmap.github.io/), and inspecting reconstructed point clouds.
-Datasets and generated artifacts remain outside Git so the repository stays
-compact and reusable across experiments.
+The pipeline: capture aligned RGB-D frames
+from an Intel RealSense camera, mask the subject by depth and colour, run an
+eight-stage COLMAP reconstruction from features through to a mesh, and inspect
+the result in Open3D.
 
-## Features
+The workflow continued as [VisRecon](https://github.com/yixnhuang/visrecon).
 
-- Tools for preprocessing, visualization, and handling 3D reconstruction data.
-- Demo scripts to quickly run and visualize reconstruction results.
+## Repository layout
 
-## Data
-
-Datasets and generated reconstruction artifacts are intentionally excluded from
-version control. Place local input images in a directory ignored by Git, such as
-`datasets/`.
+```text
+.
+├── utils/
+│   ├── get_images.py         # RealSense capture
+│   ├── new_image_geting.py   # capture + masking
+│   ├── download_dataset.py   # Hugging Face subset download
+│   ├── run_colmap_full.sh    # 8-stage COLMAP pipeline
+│   ├── view_colmap_pcd.py    # Open3D viewer
+│   ├── judge.py              # COLMAP database inspector
+│   ├── point_cloud.py        # RGB-D → point cloud, OpenCV path
+│   ├── pc.py                 # RGB-D → point cloud, Open3D path
+│   └── try.py                # early capture script
+├── demo/human/               # three screenshots from an early human-subject test
+└── LICENSE
+```
 
 ## Requirements
 
-- COLMAP installed and accessible in your environment.
-- Python 3.10 for running utility scripts.
-- Standard Python libraries: `numpy`, `opencv-python`, etc.
+- COLMAP on `PATH`, with a CUDA build for the dense stages.
+- Python 3.10, with `numpy`, `opencv-python`, `open3d`, `pyrealsense2` and
+  `huggingface-hub`.
 
-## Usage
+Install the packages above into a Python 3.10 environment.
 
-1. Preprocess images and organize them in the dataset folder.  
-2. Use provided utility scripts for feature extraction, matching, and visualization.  
-3. Run COLMAP for reconstruction following standard pipelines.
+## Data
+
+Datasets and reconstruction outputs are deliberately excluded from version
+control; the repository holds tools, not data. `demo/human/` is the exception —
+three screenshots from an early test on a human subject, kept because they show
+what the workflow produced at this stage.
 
 ## Project Status
 
-Experimental. The utilities are retained for reconstruction research and require
-local configuration before use.
+Complete. The workflow continued as [VisRecon](https://github.com/yixnhuang/visrecon).
 
 ## License
 
 Copyright 2025 Yixuan Huang
 
-This project is licensed under the Apache License, Version 2.0.
-See the [LICENSE](LICENSE) file for details.
+Licensed under the Apache License, Version 2.0 — see [LICENSE](LICENSE). Note
+that VisRecon is MIT-licensed; the two repositories differ here, and the code
+common to both is available under either.
+
+COLMAP, Open3D, librealsense and any downloaded dataset remain under their own
+licenses.
 
 ## Contact
-
-For questions or collaboration, use the contact details below or consult the
-website for the latest information.
 
 - Website: [yixuanhuang.com](https://yixuanhuang.com)
 - Email: [yixnhuang@gmail.com](mailto:yixnhuang@gmail.com)
