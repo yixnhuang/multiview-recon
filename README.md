@@ -60,9 +60,7 @@ Complete. The workflow continued as [VisRecon](https://github.com/yixnhuang/visr
 
 Copyright 2025 Yixuan Huang
 
-Licensed under the Apache License, Version 2.0 — see [LICENSE](LICENSE). Note
-that VisRecon is MIT-licensed; the two repositories differ here, and the code
-common to both is available under either.
+Licensed under the Apache License, Version 2.0 — see [LICENSE](LICENSE).
 
 COLMAP, Open3D, librealsense and any downloaded dataset remain under their own
 licenses.
